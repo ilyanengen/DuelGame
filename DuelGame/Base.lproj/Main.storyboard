@@ -864,6 +864,11 @@
                             <constraint firstItem="2Zq-tT-tUg" firstAttribute="top" secondItem="jvc-Ub-0Lu" secondAttribute="top" constant="40" id="z1k-th-ieg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionResultLabel" destination="n7O-uY-mnZ" id="ay4-pY-Btv"/>
+                        <outlet property="playerTurnLabel" destination="2Zq-tT-tUg" id="2co-RH-fbg"/>
+                        <outlet property="timeLabel" destination="H8M-cl-Q76" id="zDd-XN-ZyM"/>
+                    </connections>
                 </viewController>
                 <customObject id="y4f-Rp-Eh3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
