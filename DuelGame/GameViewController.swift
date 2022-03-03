@@ -22,10 +22,17 @@ enum Sound {
 }
 
 //Размер окрестности определяется уровнем сложности и составляет в мс:
-enum Difficulty: TimeInterval {
+enum Difficulty: Int {
     case easy = 300
     case normal = 200
     case hard = 100
+}
+
+// Количество X секунд определяется выбором части тела, в которую производится выстрел:
+enum Shot: TimeInterval {
+    case heart = 15
+    case head = 8
+    case body = 5
 }
 
 class GameViewController: NSViewController {
@@ -33,7 +40,10 @@ class GameViewController: NSViewController {
     var playerOneName = ""
     var playerTwoName = ""
     var difficulty: Difficulty! // TODO: Add UI for difficulty selection
-
+    
+    private var playerOneScore: [Int] = []
+    private var playerTwoScore: [Int] = []
+    
     private var isGameInProgress: Bool = false
     
     private var playerTurn: Turn = .none
@@ -129,7 +139,7 @@ class GameViewController: NSViewController {
     }
     
     private func updateUI() {
-        let elapsedTimeInMilliseconds = Int((elapsedTime * 1000).rounded())
+        let elapsedTimeInMilliseconds = elapsedTime.milliseconds
         // Возвращает частное и остаток от этого значения, деленные на заданное значение.
         let (minutes, remainderInMilliseconds) = elapsedTimeInMilliseconds.quotientAndRemainder(dividingBy: 60 * 1000)
         let (seconds, milliseconds) = remainderInMilliseconds.quotientAndRemainder(dividingBy: 1000)
@@ -143,9 +153,55 @@ class GameViewController: NSViewController {
         
         // TODO: Calculate MISS OR HIT
         
-        // TODO: Add difficulties EASY / NORMAL / HARD
+        let accuracy = difficulty.rawValue
         
+        let heartRange = (Shot.heart.rawValue.milliseconds - accuracy)...(Shot.heart.rawValue.milliseconds + accuracy)
+        let headRange = (Shot.head.rawValue.milliseconds - accuracy)...(Shot.head.rawValue.milliseconds + accuracy)
+        let bodyRange = (Shot.body.rawValue.milliseconds - accuracy)...(Shot.body.rawValue.milliseconds + accuracy)
         
-        actionResultLabel.stringValue = "MISS / HIT"
+        let possibleShotRanges = [Shot.heart: heartRange, Shot.head: headRange, Shot.body: bodyRange]
+        
+        var shotBodyPart: Shot?
+        
+        for range in possibleShotRanges {
+            if range.value.contains(elapsedTimeInMilliseconds) {
+                shotBodyPart = range.key
+                break
+            }
+        }
+        
+        guard let shotBodyPart = shotBodyPart else {
+            actionResultLabel.stringValue = "MISS"
+            playSound(.miss)
+            return
+        }
+        
+        addScoreToCurrentPlayer(shot: shotBodyPart)
+        
+        switch shotBodyPart {
+        case .heart:
+            actionResultLabel.stringValue = "HIT HEART"
+        case .head:
+            actionResultLabel.stringValue = "HIT HEAD"
+        case .body:
+            actionResultLabel.stringValue = "HIT BODY"
+        }
+    }
+    
+    private func addScoreToCurrentPlayer(shot: Shot) {
+        switch playerTurn {
+        case .playerOne:
+            playerOneScore.append(Int(shot.rawValue))
+        case .playerTwo:
+            playerTwoScore.append(Int(shot.rawValue))
+        case .none:
+            break
+        }
+    }
+}
+
+extension TimeInterval {
+    var milliseconds: Int {
+        return Int((self * 1000).rounded())
     }
 }
