@@ -24,7 +24,9 @@ class ViewController: NSViewController {
     @IBAction func nextButtonDidTap(_ sender: Any) {
         guard let myViewController = self.storyboard?.instantiateController(
             withIdentifier: "GameViewController") as? GameViewController else { return }
-        self.view.window?.contentViewController = myViewController
+        myViewController.playerOneName = playerOneNameTextField.stringValue
+        myViewController.playerTwoName = playerTwoNameTextField.stringValue
+        view.window?.contentViewController = myViewController
     }
 }
 

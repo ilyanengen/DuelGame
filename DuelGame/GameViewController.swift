@@ -8,8 +8,21 @@
 import Cocoa
 import AppKit
 
-class GameViewController: NSViewController {
+enum Turn {
+    case playerOne
+    case playerTwo
+    case none
+}
 
+class GameViewController: NSViewController {
+    
+    var playerOneName = ""
+    var playerTwoName = ""
+
+    private var isGameInProgress: Bool = false
+    
+    private var playerTurn: Turn = .none
+    
     private let enterKeyboardButtonCode: UInt16 = 36
     
     private var previousTimeInterval: TimeInterval = 0
@@ -28,16 +41,46 @@ class GameViewController: NSViewController {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
             if event.keyCode == self.enterKeyboardButtonCode {
                 print("Enter button was pressed")
-                self.handleTime(timestamp: event.timestamp)
-                self.updateUI()
+                self.handleEnterButtonPush(timestamp: event.timestamp)
             }
             return event
         }
     }
     
-    private func handleTime(timestamp: TimeInterval) {
-        elapsedTime = timestamp - previousTimeInterval
-        previousTimeInterval = timestamp
+    private func handleEnterButtonPush(timestamp: TimeInterval) {
+        if isGameInProgress == true {
+            print("SHOOT!")
+            elapsedTime = timestamp - previousTimeInterval
+            updateUI()
+            isGameInProgress = false
+        } else {
+            print("START GAME!")
+            switch playerTurn {
+            case .none:
+                playerTurn = .playerOne
+            case .playerOne:
+                playerTurn = .playerTwo
+            case .playerTwo:
+                playerTurn = .playerOne
+            }
+            resetUI()
+            isGameInProgress = true
+            previousTimeInterval = timestamp
+            elapsedTime = 0
+        }
+    }
+
+    private func resetUI() {
+        switch playerTurn {
+        case .none:
+            playerTurnLabel.stringValue = "Get ready!"
+        case .playerOne:
+            playerTurnLabel.stringValue = playerOneName
+        case .playerTwo:
+            playerTurnLabel.stringValue = playerTwoName
+        }
+        timeLabel.stringValue = ""
+        actionResultLabel.stringValue = ""
     }
     
     private func updateUI() {
@@ -47,10 +90,10 @@ class GameViewController: NSViewController {
         let (seconds, milliseconds) = remainderInMilliseconds.quotientAndRemainder(dividingBy: 1000)
 
         let minutesLabelString = String(minutes)
-        print("minutesLabelString: \(minutesLabelString)")
         let secondsLabelString = String(format: "%02d", seconds)
-        print("secondsLabelString: \(secondsLabelString)")
-        let milliSecondsString = String(format: "%02d", milliseconds)
-        print("milliSecondsString: \(milliSecondsString)")
+        let millisecondsLabelString = String(format: "%02d", milliseconds)
+
+        timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
+        actionResultLabel.stringValue = "MISS / HIT"
     }
 }
