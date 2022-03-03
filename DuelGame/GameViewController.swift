@@ -118,14 +118,14 @@ class GameViewController: NSViewController {
     private func resetUI() {
         switch playerTurn {
         case .none:
-            playerTurnLabel.stringValue = "Get ready!"
+            playerTurnLabel.stringValue = ""
         case .playerOne:
             playerTurnLabel.stringValue = playerOneName
         case .playerTwo:
             playerTurnLabel.stringValue = playerTwoName
         }
         timeLabel.stringValue = ""
-        actionResultLabel.stringValue = ""
+        actionResultLabel.stringValue = "К барьеру!"
     }
     
     private func updateUI() {

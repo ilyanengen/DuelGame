@@ -727,8 +727,8 @@
                                 <rect key="frame" x="40" y="130" width="415" height="98"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fL7-l1-qK8">
-                                        <rect key="frame" x="-2" y="82" width="51" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Player 1" id="zr3-qi-1Wb">
+                                        <rect key="frame" x="-2" y="82" width="52" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Игрок 1" id="zr3-qi-1Wb">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -736,15 +736,15 @@
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-Sh-Xjb">
                                         <rect key="frame" x="0.0" y="53" width="415" height="21"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Name" drawsBackground="YES" id="Fxp-BF-0CI">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Имя" drawsBackground="YES" id="Fxp-BF-0CI">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XMo-b5-25p">
-                                        <rect key="frame" x="-2" y="29" width="53" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Player 2" id="cZt-ND-Qww">
+                                        <rect key="frame" x="-2" y="29" width="54" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Игрок 2" id="cZt-ND-Qww">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -752,7 +752,7 @@
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t6V-Ib-rYy">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="21"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Name" drawsBackground="YES" id="gD0-Bd-g0c">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Имя" drawsBackground="YES" id="gD0-Bd-g0c">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -807,7 +807,7 @@
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-tT-tUg">
                                 <rect key="frame" x="38" y="225" width="419" height="35"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Player" id="Khe-qG-pxA">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Ход" id="Khe-qG-pxA">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -818,7 +818,7 @@
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-cl-Q76">
                                         <rect key="frame" x="-2" y="37" width="208" height="28"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Time" id="o1k-pJ-D6y">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Время" id="o1k-pJ-D6y">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -826,7 +826,7 @@
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-uY-mnZ">
                                         <rect key="frame" x="210" y="37" width="207" height="28"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Action" id="iYL-Kd-yjw">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Результат" id="iYL-Kd-yjw">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -844,7 +844,7 @@
                             </stackView>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-Wm-7Yu">
                                 <rect key="frame" x="38" y="40" width="419" height="48"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Press Enter to Start a turn. Press Enter again to Shoot." id="yS4-Hm-T6p">
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Нажмите Enter чтобы начать ход Нажмите Enter снова чтобы выстрелить" id="yS4-Hm-T6p">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
