@@ -711,17 +711,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-nU-B0w">
-                                <rect key="frame" x="191" y="33" width="114" height="62"/>
+                                <rect key="frame" x="216" y="33" width="64" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Bkv-bx-0Lx"/>
-                                    <constraint firstAttribute="width" constant="100" id="SsK-rO-7Mk"/>
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rNj-jj-flg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="nextButtonDidTap:" target="XfG-lQ-9wD" id="7nw-EF-GP3"/>
+                                    <action selector="nextButtonDidTap:" target="XfG-lQ-9wD" id="RZu-5w-HSx"/>
                                 </connections>
                             </button>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-zo-tAS">
@@ -796,7 +795,79 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.5" y="780.5"/>
+            <point key="canvasLocation" x="75" y="780"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="7Ph-et-73t">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="DXs-0X-wqd" customClass="GameViewController" customModule="DuelGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="jvc-Ub-0Lu">
+                        <rect key="frame" x="0.0" y="0.0" width="495" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-tT-tUg">
+                                <rect key="frame" x="38" y="225" width="419" height="35"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Player" id="Khe-qG-pxA">
+                                    <font key="font" metaFont="system" size="30"/>
+                                    <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-tS-Enq">
+                                <rect key="frame" x="40" y="128" width="415" height="65"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-cl-Q76">
+                                        <rect key="frame" x="-2" y="37" width="208" height="28"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Time" id="o1k-pJ-D6y">
+                                            <font key="font" metaFont="system" size="24"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-uY-mnZ">
+                                        <rect key="frame" x="210" y="37" width="207" height="28"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Action" id="iYL-Kd-yjw">
+                                            <font key="font" metaFont="system" size="24"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-Wm-7Yu">
+                                <rect key="frame" x="38" y="40" width="419" height="48"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Press Enter to Start a turn. Press Enter again to Shoot." id="yS4-Hm-T6p">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Zq-tT-tUg" secondAttribute="trailing" constant="40" id="0YQ-fk-Ys4"/>
+                            <constraint firstAttribute="bottom" secondItem="J6o-Wm-7Yu" secondAttribute="bottom" constant="40" id="6vf-Cu-2dS"/>
+                            <constraint firstAttribute="trailing" secondItem="J6o-Wm-7Yu" secondAttribute="trailing" constant="40" id="B8k-ui-7zo"/>
+                            <constraint firstItem="TQy-tS-Enq" firstAttribute="top" secondItem="2Zq-tT-tUg" secondAttribute="bottom" constant="32" id="JiG-mv-xBM"/>
+                            <constraint firstAttribute="trailing" secondItem="TQy-tS-Enq" secondAttribute="trailing" constant="40" id="Lbx-hZ-6pv"/>
+                            <constraint firstItem="2Zq-tT-tUg" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="Ud8-vt-iRu"/>
+                            <constraint firstItem="TQy-tS-Enq" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="gj2-De-kbR"/>
+                            <constraint firstItem="J6o-Wm-7Yu" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="hKu-7u-F80"/>
+                            <constraint firstItem="J6o-Wm-7Yu" firstAttribute="top" secondItem="TQy-tS-Enq" secondAttribute="bottom" constant="40" id="n9c-As-h6i"/>
+                            <constraint firstItem="2Zq-tT-tUg" firstAttribute="top" secondItem="jvc-Ub-0Lu" secondAttribute="top" constant="40" id="z1k-th-ieg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="y4f-Rp-Eh3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74.5" y="1161"/>
         </scene>
     </scenes>
 </document>

@@ -17,19 +17,14 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         playerOneNameTextField.delegate = self
         playerTwoNameTextField.delegate = self
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
     
-    @IBAction private func nextButtonDidTap(_ sender: Any) {
-        print("NEXT BUTTON TAP")
+    @IBAction func nextButtonDidTap(_ sender: Any) {
+        guard let myViewController = self.storyboard?.instantiateController(
+            withIdentifier: "GameViewController") as? GameViewController else { return }
+        self.view.window?.contentViewController = myViewController
     }
 }
 
