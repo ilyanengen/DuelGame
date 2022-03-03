@@ -26,6 +26,7 @@ class ViewController: NSViewController {
             withIdentifier: "GameViewController") as? GameViewController else { return }
         myViewController.playerOneName = playerOneNameTextField.stringValue
         myViewController.playerTwoName = playerTwoNameTextField.stringValue
+        myViewController.difficulty = .easy
         view.window?.contentViewController = myViewController
     }
 }

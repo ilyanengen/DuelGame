@@ -21,10 +21,18 @@ enum Sound {
     case miss
 }
 
+//Размер окрестности определяется уровнем сложности и составляет в мс:
+enum Difficulty: TimeInterval {
+    case easy = 300
+    case normal = 200
+    case hard = 100
+}
+
 class GameViewController: NSViewController {
     
     var playerOneName = ""
     var playerTwoName = ""
+    var difficulty: Difficulty! // TODO: Add UI for difficulty selection
 
     private var isGameInProgress: Bool = false
     
@@ -65,14 +73,7 @@ class GameViewController: NSViewController {
             isGameInProgress = false
         } else {
             print("START GAME!")
-            switch playerTurn {
-            case .none:
-                playerTurn = .playerOne
-            case .playerOne:
-                playerTurn = .playerTwo
-            case .playerTwo:
-                playerTurn = .playerOne
-            }
+            setPlayerTurn()
             resetUI()
             isGameInProgress = true
             previousTimeInterval = timestamp
@@ -80,14 +81,37 @@ class GameViewController: NSViewController {
         }
     }
     
+    private func setPlayerTurn() {
+        switch playerTurn {
+        case .none:
+            playerTurn = .playerOne
+        case .playerOne:
+            playerTurn = .playerTwo
+        case .playerTwo:
+            playerTurn = .playerOne
+        }
+    }
+    
     private func playSound(_ sound: Sound) {
+        var name: String
+        var ext: String
         switch sound {
         case .bang:
-            playSoundFile(name: "bang", ext: "ogg")
+            name = "bang"
+            ext = "ogg"
         case .cry:
-            playSoundFile(name: "cry", ext: "wav")
+            name = "cry"
+            ext = "wav"
         case .miss:
-            playSoundFile(name: "miss", ext: "wav")
+            name = "miss"
+            ext = "wav"
+        }
+        guard let asset = NSDataAsset(name: name) else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(data: asset.data, fileTypeHint: ext)
+            audioPlayer?.play()
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
 
@@ -115,16 +139,13 @@ class GameViewController: NSViewController {
         let millisecondsLabelString = String(format: "%02d", milliseconds)
 
         timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
+        
+        
+        // TODO: Calculate MISS OR HIT
+        
+        // TODO: Add difficulties EASY / NORMAL / HARD
+        
+        
         actionResultLabel.stringValue = "MISS / HIT"
-    }
-
-    private func playSoundFile(name:String, ext:String) -> Void {
-        guard let asset = NSDataAsset(name: name) else { return }
-        do {
-            audioPlayer = try AVAudioPlayer(data: asset.data, fileTypeHint: ext)
-            audioPlayer?.play()
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
     }
 }
