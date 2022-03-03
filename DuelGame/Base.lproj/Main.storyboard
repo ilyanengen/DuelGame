@@ -707,12 +707,16 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DuelGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="495" height="238"/>
+                        <rect key="frame" x="0.0" y="0.0" width="495" height="268"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-nU-B0w">
-                                <rect key="frame" x="216" y="33" width="64" height="32"/>
-                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rNj-jj-flg">
+                                <rect key="frame" x="191" y="33" width="114" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bkv-bx-0Lx"/>
+                                    <constraint firstAttribute="width" constant="100" id="SsK-rO-7Mk"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rNj-jj-flg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -721,7 +725,7 @@
                                 </connections>
                             </button>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-zo-tAS">
-                                <rect key="frame" x="40" y="100" width="415" height="98"/>
+                                <rect key="frame" x="40" y="130" width="415" height="98"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fL7-l1-qK8">
                                         <rect key="frame" x="-2" y="82" width="51" height="16"/>
