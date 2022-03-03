@@ -41,11 +41,10 @@ class GameViewController: NSViewController {
     }
     
     private func updateUI() {
-        let totalElapsed = elapsedTime
-
-        let hundredths = Int((totalElapsed * 100).rounded())
-        let (minutes, hundredthsOfSeconds) = hundredths.quotientAndRemainder(dividingBy: 60 * 100)
-        let (seconds, milliseconds) = hundredthsOfSeconds.quotientAndRemainder(dividingBy: 100)
+        let elapsedTimeInMilliseconds = Int((elapsedTime * 1000).rounded())
+        // Возвращает частное и остаток от этого значения, деленные на заданное значение.
+        let (minutes, remainderInMilliseconds) = elapsedTimeInMilliseconds.quotientAndRemainder(dividingBy: 60 * 1000)
+        let (seconds, milliseconds) = remainderInMilliseconds.quotientAndRemainder(dividingBy: 1000)
 
         let minutesLabelString = String(minutes)
         print("minutesLabelString: \(minutesLabelString)")
