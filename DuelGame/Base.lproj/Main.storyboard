@@ -716,6 +716,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="nextButtonDidTap:" target="XfG-lQ-9wD" id="7nw-EF-GP3"/>
+                                </connections>
                             </button>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-zo-tAS">
                                 <rect key="frame" x="40" y="100" width="415" height="98"/>
@@ -781,6 +784,11 @@
                             <constraint firstAttribute="trailing" secondItem="R1I-zo-tAS" secondAttribute="trailing" constant="40" id="xZ0-tf-5gk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="1Fw-nU-B0w" id="iMX-6P-PVS"/>
+                        <outlet property="playerOneNameTextField" destination="kU5-Sh-Xjb" id="WYN-Br-QIR"/>
+                        <outlet property="playerTwoNameTextField" destination="t6V-Ib-rYy" id="fHG-vO-5Q3"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
