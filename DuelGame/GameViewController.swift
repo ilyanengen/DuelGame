@@ -7,11 +7,18 @@
 
 import Cocoa
 import AppKit
+import AVFoundation
 
 enum Turn {
     case playerOne
     case playerTwo
     case none
+}
+
+enum Sound {
+    case bang
+    case cry
+    case miss
 }
 
 class GameViewController: NSViewController {
@@ -35,6 +42,8 @@ class GameViewController: NSViewController {
     
     @IBOutlet private weak var actionResultLabel: NSTextField!
     
+    private var audioPlayer: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +61,7 @@ class GameViewController: NSViewController {
             print("SHOOT!")
             elapsedTime = timestamp - previousTimeInterval
             updateUI()
+            playSound(.bang)
             isGameInProgress = false
         } else {
             print("START GAME!")
@@ -67,6 +77,17 @@ class GameViewController: NSViewController {
             isGameInProgress = true
             previousTimeInterval = timestamp
             elapsedTime = 0
+        }
+    }
+    
+    private func playSound(_ sound: Sound) {
+        switch sound {
+        case .bang:
+            playSoundFile(name: "bang", ext: "ogg")
+        case .cry:
+            playSoundFile(name: "cry", ext: "wav")
+        case .miss:
+            playSoundFile(name: "miss", ext: "wav")
         }
     }
 
@@ -95,5 +116,15 @@ class GameViewController: NSViewController {
 
         timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
         actionResultLabel.stringValue = "MISS / HIT"
+    }
+
+    private func playSoundFile(name:String, ext:String) -> Void {
+        guard let asset = NSDataAsset(name: name) else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(data: asset.data, fileTypeHint: ext)
+            audioPlayer?.play()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }
