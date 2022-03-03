@@ -18,7 +18,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        playerOneNameTextField.delegate = self
+        playerTwoNameTextField.delegate = self
     }
 
     override var representedObject: Any? {
@@ -29,5 +30,14 @@ class ViewController: NSViewController {
     
     @IBAction private func nextButtonDidTap(_ sender: Any) {
         print("NEXT BUTTON TAP")
+    }
+}
+
+extension ViewController: NSTextFieldDelegate {
+    
+    func controlTextDidChange(_ obj: Notification) {
+        let isNamesFilled = playerOneNameTextField.stringValue.isEmpty == false &&
+            playerTwoNameTextField.stringValue.isEmpty == false
+        nextButton.isEnabled = isNamesFilled
     }
 }
