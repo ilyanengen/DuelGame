@@ -45,26 +45,17 @@ class GameViewController: NSViewController {
     private var playerTwoScore: [Int] = []
     
     private var isGameInProgress: Bool = false
-    
     private var playerTurn: Turn = .none
-    
     private let enterKeyboardButtonCode: UInt16 = 36
-    
     private var previousTimeInterval: TimeInterval = 0
-    
     private var elapsedTime: TimeInterval = 0
+    private var audioQueuePlayer: AVQueuePlayer?
     
     @IBOutlet private weak var playerTurnLabel: NSTextField!
-    
     @IBOutlet private weak var timeLabel: NSTextField!
-    
     @IBOutlet private weak var actionResultLabel: NSTextField!
-    
     @IBOutlet private weak var bottomInfoLabel: NSTextField!
-    
-    private var audioPlayer: AVAudioPlayer?
-    
-    private var audioQueuePlayer: AVQueuePlayer?
+    @IBOutlet private weak var difficultyLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +65,17 @@ class GameViewController: NSViewController {
                 self.handleEnterButtonPush(timestamp: event.timestamp)
             }
             return event
+        }
+        
+        switch difficulty {
+        case .easy:
+            difficultyLabel.stringValue = "Сложность: Легкая - Разброс +/- 300 мс"
+        case .normal:
+            difficultyLabel.stringValue = "Сложность: Средняя - Разброс +/- 200 мс"
+        case .hard:
+            difficultyLabel.stringValue = "Сложность: Тяжелая - Разброс +/- 100 мс"
+        case .none:
+            break
         }
     }
     
@@ -127,7 +129,7 @@ class GameViewController: NSViewController {
         
         // Обработка промаха
         guard let shotBodyPart = shotBodyPart else {
-            actionResultLabel.stringValue = "MISS"
+            actionResultLabel.stringValue = "Промах"
             playSounds([.bang, .miss])
             return
         }
@@ -139,20 +141,11 @@ class GameViewController: NSViewController {
         
         switch shotBodyPart {
         case .heart:
-            actionResultLabel.stringValue = "HIT HEART"
+            actionResultLabel.stringValue = "Сердце"
         case .head:
-            actionResultLabel.stringValue = "HIT HEAD"
+            actionResultLabel.stringValue = "Голова"
         case .body:
-            actionResultLabel.stringValue = "HIT BODY"
-        }
-        
-        switch playerTurn {
-        case .playerOne:
-            bottomInfoLabel.stringValue = "Игрок 1 Победил!"
-        case .playerTwo:
-            bottomInfoLabel.stringValue = "Игрок 2 Победил!"
-        case .none:
-            break
+            actionResultLabel.stringValue = "Туловище"
         }
     }
     

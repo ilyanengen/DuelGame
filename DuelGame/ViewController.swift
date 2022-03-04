@@ -15,6 +15,8 @@ class ViewController: NSViewController {
     
     @IBOutlet private weak var playerTwoNameTextField: NSTextField!
     
+    @IBOutlet private weak var difficultySegmentedControl: NSSegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         playerOneNameTextField.delegate = self
@@ -26,7 +28,18 @@ class ViewController: NSViewController {
             withIdentifier: "GameViewController") as? GameViewController else { return }
         myViewController.playerOneName = playerOneNameTextField.stringValue
         myViewController.playerTwoName = playerTwoNameTextField.stringValue
-        myViewController.difficulty = .easy
+        
+        switch difficultySegmentedControl.selectedSegment {
+            case 0:
+                myViewController.difficulty = .easy
+            case 1:
+                myViewController.difficulty = .normal
+            case 2:
+                myViewController.difficulty = .hard
+        default:
+            break
+        }
+        
         view.window?.contentViewController = myViewController
     }
 }

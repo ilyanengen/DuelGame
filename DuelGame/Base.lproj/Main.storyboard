@@ -706,25 +706,25 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DuelGame" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                    <view key="view" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="488"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-nU-B0w">
-                                <rect key="frame" x="288" y="33" width="64" height="62"/>
+                                <rect key="frame" x="279" y="73" width="82" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Bkv-bx-0Lx"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rNj-jj-flg">
+                                <buttonCell key="cell" type="push" title="Далее" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rNj-jj-flg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="nextButtonDidTap:" target="XfG-lQ-9wD" id="RZu-5w-HSx"/>
                                 </connections>
                             </button>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-zo-tAS">
-                                <rect key="frame" x="40" y="130" width="560" height="98"/>
+                                <rect key="frame" x="40" y="170" width="560" height="98"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fL7-l1-qK8">
                                         <rect key="frame" x="-2" y="82" width="52" height="16"/>
@@ -776,18 +776,52 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Crg-4Y-u6W">
+                                <rect key="frame" x="243" y="303" width="155" height="85"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Дуэль" id="Mll-zf-kad">
+                                    <font key="font" size="54" name="Apple-Chancery"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9kV-Ed-lko">
+                                <rect key="frame" x="434" y="419" width="188" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="6d8-g9-Hbv">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Легкая" width="59" selected="YES"/>
+                                        <segment label="Средняя" width="59" tag="1"/>
+                                        <segment label="Высокая" width="58"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xom-5f-Mev">
+                                <rect key="frame" x="434" y="452" width="188" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Сложность" id="JWd-Cz-PFz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="1Fw-nU-B0w" firstAttribute="top" secondItem="R1I-zo-tAS" secondAttribute="bottom" constant="40" id="9wn-3k-Pug"/>
+                            <constraint firstItem="Crg-4Y-u6W" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="CRY-hm-aZe"/>
                             <constraint firstItem="R1I-zo-tAS" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="J35-Oa-fET"/>
-                            <constraint firstAttribute="bottom" secondItem="1Fw-nU-B0w" secondAttribute="bottom" constant="40" id="VoV-vZ-XmC"/>
-                            <constraint firstItem="R1I-zo-tAS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="Xrk-VK-Udq"/>
+                            <constraint firstAttribute="trailing" secondItem="9kV-Ed-lko" secondAttribute="trailing" constant="20" id="Nak-ja-RQq"/>
+                            <constraint firstAttribute="bottom" secondItem="1Fw-nU-B0w" secondAttribute="bottom" constant="80" id="VoV-vZ-XmC"/>
                             <constraint firstItem="R1I-zo-tAS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="40" id="ftE-VY-BT5"/>
+                            <constraint firstAttribute="trailing" secondItem="xom-5f-Mev" secondAttribute="trailing" constant="20" id="gLN-d8-j08"/>
+                            <constraint firstItem="9kV-Ed-lko" firstAttribute="top" secondItem="xom-5f-Mev" secondAttribute="bottom" constant="10" id="hFc-VR-WLy"/>
                             <constraint firstItem="1Fw-nU-B0w" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="iPx-Mk-Wdd"/>
+                            <constraint firstItem="Crg-4Y-u6W" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="100" id="qik-SV-JCK"/>
+                            <constraint firstItem="xom-5f-Mev" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="rTP-hs-wTX"/>
+                            <constraint firstItem="xom-5f-Mev" firstAttribute="centerX" secondItem="9kV-Ed-lko" secondAttribute="centerX" id="smw-ju-nos"/>
                             <constraint firstAttribute="trailing" secondItem="R1I-zo-tAS" secondAttribute="trailing" constant="40" id="xZ0-tf-5gk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="difficultySegmentedControl" destination="9kV-Ed-lko" id="xzY-KE-61Z"/>
                         <outlet property="nextButton" destination="1Fw-nU-B0w" id="iMX-6P-PVS"/>
                         <outlet property="playerOneNameTextField" destination="kU5-Sh-Xjb" id="WYN-Br-QIR"/>
                         <outlet property="playerTwoNameTextField" destination="t6V-Ib-rYy" id="fHG-vO-5Q3"/>
@@ -814,10 +848,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-tS-Enq">
-                                <rect key="frame" x="40" y="104" width="560" height="269"/>
+                                <rect key="frame" x="40" y="317" width="560" height="28"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-cl-Q76">
-                                        <rect key="frame" x="-2" y="241" width="280" height="28"/>
+                                        <rect key="frame" x="-2" y="0.0" width="280" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Время" id="o1k-pJ-D6y">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -825,7 +859,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-uY-mnZ">
-                                        <rect key="frame" x="282" y="241" width="280" height="28"/>
+                                        <rect key="frame" x="282" y="0.0" width="280" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Результат" id="iYL-Kd-yjw">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -843,8 +877,26 @@
                                 </customSpacing>
                             </stackView>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-Wm-7Yu">
-                                <rect key="frame" x="38" y="40" width="564" height="24"/>
+                                <rect key="frame" x="38" y="245" width="564" height="24"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="center" title="Нажмите Enter чтобы начать ход" id="yS4-Hm-T6p">
+                                    <font key="font" metaFont="systemSemibold" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xjp-2c-HqQ">
+                                <rect key="frame" x="38" y="125" width="564" height="72"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" id="DCR-E2-gmq">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <string key="title">сердце - 15 сек голова - 8 сек
+живот - 5 сек</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bFf-KA-Cxa">
+                                <rect key="frame" x="38" y="81" width="564" height="24"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Сложность" id="ZYb-e4-IAZ">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -853,20 +905,26 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2Zq-tT-tUg" secondAttribute="trailing" constant="40" id="0YQ-fk-Ys4"/>
-                            <constraint firstAttribute="bottom" secondItem="J6o-Wm-7Yu" secondAttribute="bottom" constant="40" id="6vf-Cu-2dS"/>
+                            <constraint firstItem="xjp-2c-HqQ" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="3LX-qf-J2p"/>
+                            <constraint firstItem="xjp-2c-HqQ" firstAttribute="top" secondItem="J6o-Wm-7Yu" secondAttribute="bottom" constant="48" id="3i5-mx-aKg"/>
                             <constraint firstAttribute="trailing" secondItem="J6o-Wm-7Yu" secondAttribute="trailing" constant="40" id="B8k-ui-7zo"/>
-                            <constraint firstItem="TQy-tS-Enq" firstAttribute="top" secondItem="2Zq-tT-tUg" secondAttribute="bottom" constant="32" id="JiG-mv-xBM"/>
+                            <constraint firstAttribute="trailing" secondItem="xjp-2c-HqQ" secondAttribute="trailing" constant="40" id="IR8-QY-IXw"/>
+                            <constraint firstItem="TQy-tS-Enq" firstAttribute="top" secondItem="2Zq-tT-tUg" secondAttribute="bottom" constant="60" id="JiG-mv-xBM"/>
                             <constraint firstAttribute="trailing" secondItem="TQy-tS-Enq" secondAttribute="trailing" constant="40" id="Lbx-hZ-6pv"/>
+                            <constraint firstItem="bFf-KA-Cxa" firstAttribute="top" secondItem="xjp-2c-HqQ" secondAttribute="bottom" constant="20" id="Nc4-7K-Luh"/>
+                            <constraint firstItem="bFf-KA-Cxa" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="Q6V-Wi-Z4L"/>
                             <constraint firstItem="2Zq-tT-tUg" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="Ud8-vt-iRu"/>
                             <constraint firstItem="TQy-tS-Enq" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="gj2-De-kbR"/>
                             <constraint firstItem="J6o-Wm-7Yu" firstAttribute="leading" secondItem="jvc-Ub-0Lu" secondAttribute="leading" constant="40" id="hKu-7u-F80"/>
-                            <constraint firstItem="J6o-Wm-7Yu" firstAttribute="top" secondItem="TQy-tS-Enq" secondAttribute="bottom" constant="40" id="n9c-As-h6i"/>
+                            <constraint firstAttribute="trailing" secondItem="bFf-KA-Cxa" secondAttribute="trailing" constant="40" id="pE5-88-07y"/>
+                            <constraint firstItem="J6o-Wm-7Yu" firstAttribute="top" secondItem="TQy-tS-Enq" secondAttribute="bottom" constant="48" id="qTL-ZC-lJl"/>
                             <constraint firstItem="2Zq-tT-tUg" firstAttribute="top" secondItem="jvc-Ub-0Lu" secondAttribute="top" constant="40" id="z1k-th-ieg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="actionResultLabel" destination="n7O-uY-mnZ" id="ay4-pY-Btv"/>
                         <outlet property="bottomInfoLabel" destination="J6o-Wm-7Yu" id="XS6-ju-6Zx"/>
+                        <outlet property="difficultyLabel" destination="bFf-KA-Cxa" id="HfV-It-rV1"/>
                         <outlet property="playerTurnLabel" destination="2Zq-tT-tUg" id="2co-RH-fbg"/>
                         <outlet property="timeLabel" destination="H8M-cl-Q76" id="zDd-XN-ZyM"/>
                     </connections>
