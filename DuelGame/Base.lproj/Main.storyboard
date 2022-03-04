@@ -688,7 +688,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="640" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -706,12 +706,12 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DuelGame" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="495" height="268"/>
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-nU-B0w">
-                                <rect key="frame" x="216" y="33" width="64" height="62"/>
+                                <rect key="frame" x="288" y="33" width="64" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Bkv-bx-0Lx"/>
                                 </constraints>
@@ -724,7 +724,7 @@
                                 </connections>
                             </button>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-zo-tAS">
-                                <rect key="frame" x="40" y="130" width="415" height="98"/>
+                                <rect key="frame" x="40" y="130" width="560" height="98"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fL7-l1-qK8">
                                         <rect key="frame" x="-2" y="82" width="52" height="16"/>
@@ -735,7 +735,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-Sh-Xjb">
-                                        <rect key="frame" x="0.0" y="53" width="415" height="21"/>
+                                        <rect key="frame" x="0.0" y="53" width="560" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Имя" drawsBackground="YES" id="Fxp-BF-0CI">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -751,7 +751,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t6V-Ib-rYy">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Имя" drawsBackground="YES" id="gD0-Bd-g0c">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -795,18 +795,18 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="780"/>
+            <point key="canvasLocation" x="75" y="904"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="7Ph-et-73t">
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="DXs-0X-wqd" customClass="GameViewController" customModule="DuelGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jvc-Ub-0Lu">
-                        <rect key="frame" x="0.0" y="0.0" width="495" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-tT-tUg">
-                                <rect key="frame" x="38" y="225" width="419" height="35"/>
+                                <rect key="frame" x="38" y="405" width="564" height="35"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Ход" id="Khe-qG-pxA">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
@@ -814,10 +814,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-tS-Enq">
-                                <rect key="frame" x="40" y="104" width="415" height="89"/>
+                                <rect key="frame" x="40" y="104" width="560" height="269"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-cl-Q76">
-                                        <rect key="frame" x="-2" y="61" width="208" height="28"/>
+                                        <rect key="frame" x="-2" y="241" width="280" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Время" id="o1k-pJ-D6y">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -825,7 +825,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-uY-mnZ">
-                                        <rect key="frame" x="210" y="61" width="207" height="28"/>
+                                        <rect key="frame" x="282" y="241" width="280" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Результат" id="iYL-Kd-yjw">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -843,7 +843,7 @@
                                 </customSpacing>
                             </stackView>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-Wm-7Yu">
-                                <rect key="frame" x="38" y="40" width="419" height="24"/>
+                                <rect key="frame" x="38" y="40" width="564" height="24"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="center" title="Нажмите Enter чтобы начать ход" id="yS4-Hm-T6p">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -873,7 +873,7 @@
                 </viewController>
                 <customObject id="y4f-Rp-Eh3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74.5" y="1161"/>
+            <point key="canvasLocation" x="75" y="1426"/>
         </scene>
     </scenes>
 </document>
