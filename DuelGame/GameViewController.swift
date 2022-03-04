@@ -15,7 +15,7 @@ enum Turn {
     case none
 }
 
-enum Sound {
+enum Sound: String {
     case bang
     case cry
     case miss
@@ -64,12 +64,13 @@ class GameViewController: NSViewController {
     
     private var audioPlayer: AVAudioPlayer?
     
+    private var audioQueuePlayer: AVQueuePlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
             if event.keyCode == self.enterKeyboardButtonCode {
-                print("Enter button was pressed")
                 self.handleEnterButtonPush(timestamp: event.timestamp)
             }
             return event
@@ -80,7 +81,6 @@ class GameViewController: NSViewController {
         if isGameInProgress == true {
             print("SHOOT!")
             elapsedTime = timestamp - previousTimeInterval
-            playSound(.bang)
             updateUI()
             isGameInProgress = false
         } else {
@@ -104,27 +104,15 @@ class GameViewController: NSViewController {
         }
     }
     
-    private func playSound(_ sound: Sound) {
-        var name: String
-        var ext: String
-        switch sound {
-        case .bang:
-            name = "bang"
-            ext = "ogg"
-        case .cry:
-            name = "cry"
-            ext = "wav"
-        case .miss:
-            name = "miss"
-            ext = "wav"
+    private func playSounds(_ sounds: [Sound]) {
+        var audioItems: [AVPlayerItem] = []
+        for sound in sounds {
+            let url = URL(fileURLWithPath: Bundle.main.path(forResource: sound.rawValue, ofType: "wav")!)
+            let item = AVPlayerItem(url: url)
+            audioItems.append(item)
         }
-        guard let asset = NSDataAsset(name: name) else { return }
-        do {
-            audioPlayer = try AVAudioPlayer(data: asset.data, fileTypeHint: ext)
-            audioPlayer?.play()
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
+        audioQueuePlayer = AVQueuePlayer(items: audioItems)
+        audioQueuePlayer?.play()
     }
 
     private func resetUI() {
@@ -152,7 +140,7 @@ class GameViewController: NSViewController {
         let millisecondsLabelString = String(format: "%02d", milliseconds)
 
         timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
-        
+  
         // Calculate MISS OR HIT
         let accuracy = difficulty.rawValue
         
@@ -175,11 +163,11 @@ class GameViewController: NSViewController {
         
         guard let shotBodyPart = shotBodyPart else {
             actionResultLabel.stringValue = "MISS"
-            playSound(.miss)
+            playSounds([.bang, .miss])
             return
         }
         
-        playSound(.cry)
+        playSounds([.bang, .cry])
         
         addScoreToCurrentPlayer(shot: shotBodyPart)
         

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0916983027D2302200124605 /* miss.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0916982D27D2302200124605 /* miss.wav */; };
+		0916983127D2302200124605 /* cry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0916982E27D2302200124605 /* cry.wav */; };
+		0916983227D2302200124605 /* bang.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0916982F27D2302200124605 /* bang.wav */; };
 		092F256127D1136C00843BDB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F256027D1136C00843BDB /* GameViewController.swift */; };
 		093DEF0027CE80650067DBF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DEEFF27CE80650067DBF6 /* AppDelegate.swift */; };
 		093DEF0227CE80650067DBF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093DEF0127CE80650067DBF6 /* ViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0916982D27D2302200124605 /* miss.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = miss.wav; sourceTree = "<group>"; };
+		0916982E27D2302200124605 /* cry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cry.wav; sourceTree = "<group>"; };
+		0916982F27D2302200124605 /* bang.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bang.wav; sourceTree = "<group>"; };
 		092F256027D1136C00843BDB /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		093DEEFC27CE80650067DBF6 /* DuelGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuelGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		093DEEFF27CE80650067DBF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,9 @@
 				093DEEFF27CE80650067DBF6 /* AppDelegate.swift */,
 				093DEF0127CE80650067DBF6 /* ViewController.swift */,
 				092F256027D1136C00843BDB /* GameViewController.swift */,
+				0916982F27D2302200124605 /* bang.wav */,
+				0916982E27D2302200124605 /* cry.wav */,
+				0916982D27D2302200124605 /* miss.wav */,
 				093DEF0327CE80660067DBF6 /* Assets.xcassets */,
 				093DEF0527CE80660067DBF6 /* Main.storyboard */,
 				093DEF0827CE80660067DBF6 /* DuelGame.entitlements */,
@@ -228,6 +237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0916983227D2302200124605 /* bang.wav in Resources */,
+				0916983027D2302200124605 /* miss.wav in Resources */,
+				0916983127D2302200124605 /* cry.wav in Resources */,
 				093DEF0427CE80660067DBF6 /* Assets.xcassets in Resources */,
 				093DEF0727CE80660067DBF6 /* Main.storyboard in Resources */,
 			);
