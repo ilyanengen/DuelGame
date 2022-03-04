@@ -81,6 +81,7 @@ class GameViewController: NSViewController {
         if isGameInProgress == true {
             print("SHOOT!")
             elapsedTime = timestamp - previousTimeInterval
+            handleHit()
             updateUI()
             isGameInProgress = false
         } else {
@@ -101,6 +102,57 @@ class GameViewController: NSViewController {
             playerTurn = .playerTwo
         case .playerTwo:
             playerTurn = .playerOne
+        }
+    }
+    
+    private func handleHit() {
+        
+        // Вычисляем: Попадание ИЛИ Промах
+        let accuracy = difficulty.rawValue
+
+        let heartRange = (Shot.heart.rawValue.milliseconds - accuracy)...(Shot.heart.rawValue.milliseconds + accuracy)
+        let headRange = (Shot.head.rawValue.milliseconds - accuracy)...(Shot.head.rawValue.milliseconds + accuracy)
+        let bodyRange = (Shot.body.rawValue.milliseconds - accuracy)...(Shot.body.rawValue.milliseconds + accuracy)
+        
+        let possibleShotRanges = [Shot.heart: heartRange, Shot.head: headRange, Shot.body: bodyRange]
+        
+        var shotBodyPart: Shot?
+        
+        for range in possibleShotRanges {
+            if range.value.contains(elapsedTime.milliseconds) {
+                shotBodyPart = range.key
+                break
+            }
+        }
+        
+        // Обработка промаха
+        guard let shotBodyPart = shotBodyPart else {
+            actionResultLabel.stringValue = "MISS"
+            playSounds([.bang, .miss])
+            return
+        }
+        
+        // Обработка попадания
+        playSounds([.bang, .cry])
+        
+        addScoreToCurrentPlayer(shot: shotBodyPart)
+        
+        switch shotBodyPart {
+        case .heart:
+            actionResultLabel.stringValue = "HIT HEART"
+        case .head:
+            actionResultLabel.stringValue = "HIT HEAD"
+        case .body:
+            actionResultLabel.stringValue = "HIT BODY"
+        }
+        
+        switch playerTurn {
+        case .playerOne:
+            bottomInfoLabel.stringValue = "Игрок 1 Победил!"
+        case .playerTwo:
+            bottomInfoLabel.stringValue = "Игрок 2 Победил!"
+        case .none:
+            break
         }
     }
     
@@ -140,45 +192,7 @@ class GameViewController: NSViewController {
         let millisecondsLabelString = String(format: "%02d", milliseconds)
 
         timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
-  
-        // Calculate MISS OR HIT
-        let accuracy = difficulty.rawValue
-        
-        let heartRange = (Shot.heart.rawValue.milliseconds - accuracy)...(Shot.heart.rawValue.milliseconds + accuracy)
-        let headRange = (Shot.head.rawValue.milliseconds - accuracy)...(Shot.head.rawValue.milliseconds + accuracy)
-        let bodyRange = (Shot.body.rawValue.milliseconds - accuracy)...(Shot.body.rawValue.milliseconds + accuracy)
-        
-        let possibleShotRanges = [Shot.heart: heartRange, Shot.head: headRange, Shot.body: bodyRange]
-        
-        var shotBodyPart: Shot?
-        
-        for range in possibleShotRanges {
-            if range.value.contains(elapsedTimeInMilliseconds) {
-                shotBodyPart = range.key
-                break
-            }
-        }
-        
         bottomInfoLabel.stringValue = "Нажмите Enter чтобы начать ход"
-        
-        guard let shotBodyPart = shotBodyPart else {
-            actionResultLabel.stringValue = "MISS"
-            playSounds([.bang, .miss])
-            return
-        }
-        
-        playSounds([.bang, .cry])
-        
-        addScoreToCurrentPlayer(shot: shotBodyPart)
-        
-        switch shotBodyPart {
-        case .heart:
-            actionResultLabel.stringValue = "HIT HEART"
-        case .head:
-            actionResultLabel.stringValue = "HIT HEAD"
-        case .body:
-            actionResultLabel.stringValue = "HIT BODY"
-        }
     }
     
     private func addScoreToCurrentPlayer(shot: Shot) {
