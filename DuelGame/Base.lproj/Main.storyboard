@@ -814,10 +814,10 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-tS-Enq">
-                                <rect key="frame" x="40" y="128" width="415" height="65"/>
+                                <rect key="frame" x="40" y="104" width="415" height="89"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H8M-cl-Q76">
-                                        <rect key="frame" x="-2" y="37" width="208" height="28"/>
+                                        <rect key="frame" x="-2" y="61" width="208" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Время" id="o1k-pJ-D6y">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -825,7 +825,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7O-uY-mnZ">
-                                        <rect key="frame" x="210" y="37" width="207" height="28"/>
+                                        <rect key="frame" x="210" y="61" width="207" height="28"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Результат" id="iYL-Kd-yjw">
                                             <font key="font" metaFont="system" size="24"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -843,8 +843,8 @@
                                 </customSpacing>
                             </stackView>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="J6o-Wm-7Yu">
-                                <rect key="frame" x="38" y="40" width="419" height="48"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Нажмите Enter чтобы начать ход Нажмите Enter снова чтобы выстрелить" id="yS4-Hm-T6p">
+                                <rect key="frame" x="38" y="40" width="419" height="24"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Нажмите Enter чтобы начать ход" id="yS4-Hm-T6p">
                                     <font key="font" metaFont="system" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -866,6 +866,7 @@
                     </view>
                     <connections>
                         <outlet property="actionResultLabel" destination="n7O-uY-mnZ" id="ay4-pY-Btv"/>
+                        <outlet property="bottomInfoLabel" destination="J6o-Wm-7Yu" id="XS6-ju-6Zx"/>
                         <outlet property="playerTurnLabel" destination="2Zq-tT-tUg" id="2co-RH-fbg"/>
                         <outlet property="timeLabel" destination="H8M-cl-Q76" id="zDd-XN-ZyM"/>
                     </connections>

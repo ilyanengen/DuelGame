@@ -60,6 +60,8 @@ class GameViewController: NSViewController {
     
     @IBOutlet private weak var actionResultLabel: NSTextField!
     
+    @IBOutlet private weak var bottomInfoLabel: NSTextField!
+    
     private var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
@@ -78,8 +80,8 @@ class GameViewController: NSViewController {
         if isGameInProgress == true {
             print("SHOOT!")
             elapsedTime = timestamp - previousTimeInterval
-            updateUI()
             playSound(.bang)
+            updateUI()
             isGameInProgress = false
         } else {
             print("START GAME!")
@@ -130,12 +132,13 @@ class GameViewController: NSViewController {
         case .none:
             playerTurnLabel.stringValue = ""
         case .playerOne:
-            playerTurnLabel.stringValue = playerOneName
+            playerTurnLabel.stringValue = "Ход Игрока 1: \(playerOneName)"
         case .playerTwo:
-            playerTurnLabel.stringValue = playerTwoName
+            playerTurnLabel.stringValue = "Ход Игрока 2: \(playerTwoName)"
         }
         timeLabel.stringValue = ""
-        actionResultLabel.stringValue = "К барьеру!"
+        actionResultLabel.stringValue = "Целится"
+        bottomInfoLabel.stringValue = "Нажмите Enter чтобы выстрелить"
     }
     
     private func updateUI() {
@@ -150,9 +153,7 @@ class GameViewController: NSViewController {
 
         timeLabel.stringValue = "\(minutesLabelString):\(secondsLabelString):\(millisecondsLabelString)"
         
-        
-        // TODO: Calculate MISS OR HIT
-        
+        // Calculate MISS OR HIT
         let accuracy = difficulty.rawValue
         
         let heartRange = (Shot.heart.rawValue.milliseconds - accuracy)...(Shot.heart.rawValue.milliseconds + accuracy)
@@ -170,11 +171,15 @@ class GameViewController: NSViewController {
             }
         }
         
+        bottomInfoLabel.stringValue = "Нажмите Enter чтобы начать ход"
+        
         guard let shotBodyPart = shotBodyPart else {
             actionResultLabel.stringValue = "MISS"
             playSound(.miss)
             return
         }
+        
+        playSound(.cry)
         
         addScoreToCurrentPlayer(shot: shotBodyPart)
         
